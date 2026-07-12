@@ -31,10 +31,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
     
     // Admin Routes
-    Route::prefix('admin')->name('admin.')->group(function () {
-        Route::get('/', function () { return view('admin.dashboard'); })->name('dashboard');
-        // Additional admin routes can be added here
-        
+    Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\AdminController::class, 'index'])->name('dashboard');
+        Route::resource('blog', \App\Http\Controllers\Admin\BlogAdminController::class);
+        Route::resource('videos', \App\Http\Controllers\Admin\VideoAdminController::class);
+        Route::resource('projects', \App\Http\Controllers\Admin\ProjectAdminController::class);
+        Route::resource('messages', \App\Http\Controllers\Admin\MessageAdminController::class)->only(['index', 'destroy']);
     });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

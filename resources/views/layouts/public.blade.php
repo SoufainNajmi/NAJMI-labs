@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
@@ -94,6 +94,20 @@
                         </svg>
                     </button>
 
+                    @auth
+                        @if(auth()->user()->is_admin)
+                            <a href="{{ route('admin.dashboard') }}" class="text-sm font-medium hover:text-primary transition-colors">Admin</a>
+                        @endif
+                        <form method="POST" action="{{ route('logout') }}" class="inline">
+                            @csrf
+                            <button type="submit" class="text-sm font-medium text-rose-500 hover:text-rose-600 transition-colors">
+                                Logout
+                            </button>
+                        </form>
+                    @else
+                        <a href="{{ route('login') }}" class="text-sm font-medium hover:text-primary transition-colors">Login</a>
+                    @endauth
+
                     <a href="{{ route('contact.show') }}" class="btn-primary text-sm shadow-md">Let's Talk</a>
                 </div>
 
@@ -134,6 +148,21 @@
                     class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Blog</a>
                 <a href="{{ route('tutorials') }}"
                     class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Tutorials</a>
+                
+                @auth
+                    @if(auth()->user()->is_admin)
+                        <a href="{{ route('admin.dashboard') }}"
+                            class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Admin Dashboard</a>
+                    @endif
+                    <form method="POST" action="{{ route('logout') }}" class="block px-3 py-2">
+                        @csrf
+                        <button type="submit" class="w-full text-left text-base font-medium text-rose-500 hover:text-rose-600">Logout</button>
+                    </form>
+                @else
+                    <a href="{{ route('login') }}"
+                        class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Login</a>
+                @endauth
+
                 <a href="{{ route('contact.show') }}"
                     class="block px-3 py-2 rounded-md text-base font-medium bg-primary text-white mt-4 text-center">Let's
                     Talk</a>

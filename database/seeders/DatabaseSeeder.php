@@ -17,9 +17,18 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        if (!User::where('email', 'soufainnajmi@gmail.com')->exists()) {
+            User::factory()->create([
+                'name' => 'Soufain Najmi',
+                'email' => 'soufainnajmi@gmail.com',
+                'password' => bcrypt('soufain.2004'),
+                'is_admin' => true,
+            ]);
+        }
+
+        \App\Models\Category::firstOrCreate(['slug' => 'laravel'], ['name' => 'Laravel', 'color' => 'red']);
+        \App\Models\Category::firstOrCreate(['slug' => 'php'], ['name' => 'PHP', 'color' => 'blue']);
+        \App\Models\Category::firstOrCreate(['slug' => 'n8n'], ['name' => 'n8n', 'color' => 'orange']);
+        \App\Models\Category::firstOrCreate(['slug' => 'ai'], ['name' => 'AI', 'color' => 'purple']);
     }
 }

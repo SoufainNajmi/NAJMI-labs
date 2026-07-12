@@ -20,8 +20,12 @@ class ContactController extends Controller
             'message' => 'required|string',
         ]);
 
-        // Here we would typically save to DB or send mail.
-        // For now, redirect back with success message.
+        \App\Models\Message::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'body' => $request->message,
+        ]);
 
         return redirect()->back()->with('success', 'Your message has been sent successfully. I will get back to you soon!');
     }

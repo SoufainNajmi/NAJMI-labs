@@ -37,22 +37,14 @@
                         </span>
                     </h1>
 
-                    {{-- Subtitle --}}
-                    <p class="text-xl md:text-2xl text-slate-600 dark:text-slate-300 max-w-2xl font-medium reveal-up"
-                        style="animation-delay:0.35s;">
+                    {{-- Typewriter Subtitle --}}
+                    <div class="text-xl md:text-2xl text-slate-600 dark:text-slate-300 max-w-2xl font-medium reveal-up"
+                        style="animation-delay:0.35s; min-height: 4rem;">
                         <span class="block relative">
-                            <span class="inline-block animate-pulse-slow text-primary/80 dark:text-primary/90">✦</span>
-                            Full Stack Laravel Developer
+                            <span class="inline-block animate-pulse-slow text-primary/80 dark:text-primary/90 mr-2">✦</span>
+                            <span id="typewriter-text" class="inline-block border-r-2 border-primary/60 pr-1"></span>
                         </span>
-                        <span class="block text-primary/80 dark:text-primary/90 relative">
-                            <span class="inline-block animate-bounce-slow mr-2">⚡</span>
-                            AI Automation Engineer
-                        </span>
-                        <span class="block text-accent/80 dark:text-accent/90 relative">
-                            <span class="inline-block animate-spin-slow mr-2">⟳</span>
-                            n8n Workflow Developer
-                        </span>
-                    </p>
+                    </div>
 
                     {{-- Description --}}
                     <p class="text-lg text-slate-500 dark:text-slate-400 max-w-xl mx-auto md:mx-0 leading-relaxed reveal-up"
@@ -61,9 +53,19 @@
                         problems. Welcome to my digital campus.
                     </p>
 
+                    {{-- Technology Badges --}}
+                    <div class="flex flex-wrap justify-center md:justify-start gap-2 reveal-up" style="animation-delay:0.6s;">
+                        <span class="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary border border-primary/20">Laravel</span>
+                        <span class="px-3 py-1 text-sm rounded-full bg-accent/10 text-accent border border-accent/20">n8n make </span>
+                        <span class="px-3 py-1 text-sm rounded-full bg-indigo-500/10 text-indigo-500 border border-indigo-500/20">AI automation </span>
+                        <span class="px-3 py-1 text-sm rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Python php </span>
+                        <span class="px-3 py-1 text-sm rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/20">Docker </span>
+                        <span class="px-3 py-1 text-sm rounded-full bg-rose-500/10 text-rose-500 border border-rose-500/20">HTML CSS JavaScript</span>
+                    </div>
+
                     {{-- Call to Actions --}}
                     <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center reveal-up"
-                        style="animation-delay:0.65s;">
+                        style="animation-delay:0.7s;">
 
                         <a href="{{ route('blog.index') }}"
                             class="relative inline-flex items-center justify-center px-8 py-3.5 text-base font-bold text-white transition-all duration-300 bg-primary border border-transparent rounded-xl hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-1 overflow-hidden group">
@@ -115,6 +117,15 @@
                             </div>
                         </a>
                     </div>
+
+                    {{-- Scroll indicator --}}
+                    <div class="flex justify-center md:justify-start mt-4 reveal-up" style="animation-delay:0.85s;">
+                        <a href="#stats-section" class="text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-accent transition-colors duration-300 animate-bounce-slow" aria-label="Scroll down">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
 
                 {{-- Profile Image --}}
@@ -154,10 +165,6 @@
                                         d="M11.833 13.917l-3.328-1.921V8.291l3.328 1.921zm.334 0l3.328-1.921V8.291l-3.328 1.921zM7.5 16.917l4.5-2.6V9.116L7.5 11.716zm9 0l-4.5-2.6V9.116l4.5 2.6zM12 6.6l3.33-1.92-3.33-1.92-3.33 1.92z" />
                                 </svg>
                             </div>
-                            <div>
-                                <p class="text-xs text-slate-500 font-medium">Framework</p>
-                                <p class="text-sm font-bold text-slate-800 dark:text-white">Laravel 12</p>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -165,182 +172,61 @@
         </section>
 
         {{-- ===== STATS SECTION ===== --}}
-        <section
-            class="relative py-12 md:py-20 border-y border-slate-200 dark:border-slate-800/50 bg-slate-100/50 dark:bg-slate-900/20"
-            aria-label="Statistics">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" id="stats-grid">
+<section id="stats-section"
+    class="relative py-12 md:py-20 border-y border-slate-200 dark:border-slate-800/50 bg-slate-100/50 dark:bg-slate-900/20"
+    aria-label="Statistics">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" id="stats-grid">
 
-                    @php
-                        $stats = [
-                            ['label' => 'Articles Published', 'count' => 40, 'color' => 'primary', 'icon' => '📝'],
-                            ['label' => 'Production Projects', 'count' => 25, 'color' => 'accent', 'icon' => '🚀'],
-                            ['label' => 'Core Technologies', 'count' => 15, 'color' => 'primary', 'icon' => '💻'],
-                            ['label' => 'Years of Learning', 'count' => 5, 'color' => 'accent', 'icon' => '🎯'],
-                        ];
-                    @endphp
+            @php
+                $stats = [
+                    [
+                        'label' => 'Articles Published',
+                        'count' => 40,
+                        'color' => 'primary',
+                        'icon' => '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>'
+                    ],
+                    [
+                        'label' => 'Production Projects',
+                        'count' => 25,
+                        'color' => 'accent',
+                        'icon' => '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" /></svg>'
+                    ],
+                    [
+                        'label' => 'Core Technologies',
+                        'count' => 15,
+                        'color' => 'primary',
+                        'icon' => '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7.5 3.75H6a2.25 2.25 0 00-2.25 2.25v1.5M16.5 3.75H18a2.25 2.25 0 012.25 2.25v1.5m0 8.25v1.5a2.25 2.25 0 01-2.25 2.25h-1.5m-9 0H6a2.25 2.25 0 01-2.25-2.25v-1.5m-3-3h1.5m12.75 0h1.5M3.75 12h1.5m12.75 0h1.5M12 3.75v1.5m0 12.75v1.5M12 6a.75.75 0 100 1.5.75.75 0 000-1.5zm0 4.5a.75.75 0 100 1.5.75.75 0 000-1.5zm0 4.5a.75.75 0 100 1.5.75.75 0 000-1.5z" /></svg>'
+                    ],
+                    [
+                        'label' => 'Years of Learning',
+                        'count' => 5,
+                        'color' => 'accent',
+                        'icon' => '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zM14.25 15h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-2.25h.008v.008H16.5V15zm0 2.25h.008v.008H16.5v-.008z" /></svg>'
+                    ],
+                ];
+            @endphp
 
-                    @foreach($stats as $i => $stat)
-                        <div class="stat-card p-6 rounded-2xl glass transition-all duration-500 hover:-translate-y-2 group opacity-0"
-                            data-target="{{ $stat['count'] }}" style="--stat-delay: {{ $i * 150 }}ms;">
-                            <div class="text-3xl mb-2 group-hover:scale-125 transition-transform duration-300 inline-block">
-                                {{ $stat['icon'] }}
-                            </div>
-                            <div
-                                class="text-4xl font-bold text-{{ $stat['color'] }} mb-2 group-hover:scale-110 transition-transform duration-300">
-                                <span class="stat-number">0</span>+
-                            </div>
-                            <div
-                                class="text-sm font-medium text-slate-500 dark:text-slate-400 group-hover:text-primary transition-colors duration-300">
-                                {{ $stat['label'] }}
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-
-        {{-- ===== MOTIVATION SECTION ===== --}}
-        <section class="relative py-24 overflow-hidden" id="motivation-section" aria-label="Motivation and Innovation">
-
-            {{-- Background radial glow --}}
-            <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent"
-                aria-hidden="true"></div>
-
-            {{-- Animated blobs --}}
-            <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden="true">
-                <div class="absolute top-20 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float-slow"></div>
-                <div class="absolute bottom-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float-slower">
-                </div>
-                <div class="absolute top-1/2 left-1/2 w-48 h-48 bg-primary/3 rounded-full blur-2xl animate-float-medium"
-                    style="animation-delay:1s;"></div>
-            </div>
-
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-                {{-- Section Header --}}
-                <div class="text-center max-w-3xl mx-auto mb-16 motivation-header opacity-0">
-                    <div class="inline-block mb-4">
-                        <span class="text-5xl animate-pulse-slow">💡</span>
+            @foreach($stats as $i => $stat)
+                <div class="stat-card p-6 rounded-2xl glass transition-all duration-500 hover:-translate-y-2 group opacity-0"
+                    data-target="{{ $stat['count'] }}" style="--stat-delay: {{ $i * 150 }}ms;">
+                    {{-- Icon container with color class --}}
+                    <div class="flex justify-center mb-2 text-{{ $stat['color'] }} group-hover:scale-125 transition-transform duration-300">
+                        {!! $stat['icon'] !!}
                     </div>
-                    <h2 class="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-                        Passion <span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent animate-gradient-text bg-[length:200%_auto]">&</span>
-                        Innovation
-                    </h2>
-                    <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
-                        Bridging the gap between complex problems and elegant, scalable solutions. I am driven by the
-                        endless possibilities of technology, constantly learning, and pushing boundaries.
-                    </p>
-                    <div class="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mt-6 rounded-full"></div>
+                    <div
+                        class="text-4xl font-bold text-{{ $stat['color'] }} mb-2 group-hover:scale-110 transition-transform duration-300">
+                        <span class="stat-number">0</span>+
+                    </div>
+                    <div
+                        class="text-sm font-medium text-slate-500 dark:text-slate-400 group-hover:text-primary transition-colors duration-300">
+                        {{ $stat['label'] }}
+                    </div>
                 </div>
-
-                {{-- Motivation Items --}}
-                <div class="space-y-24">
-
-                    @php
-                        $motivationItems = [
-                            [
-                                'image' => 'm1.png',
-                                'icon' => 'M13 10V3L4 14h7v7l9-11h-7z',
-                                'title' => 'Continuous Learning',
-                                'description' => 'The tech landscape is ever-evolving, and my passion lies in adapting and mastering new tools. From building robust backend architectures with Laravel to integrating intelligent AI pipelines. Technology isn\'t just my career, it\'s my craft.',
-                                'tags' => ['Growth Mindset', 'Curiosity', 'Adaptability'],
-                                'iconColor' => 'primary',
-                                'gradientTo' => 'accent',
-                                'emoji' => '📚',
-                                'direction' => 'normal',
-                            ],
-                            [
-                                'image' => 'm2.png',
-                                'icon' => 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z',
-                                'title' => 'Sharing Knowledge',
-                                'description' => 'Through <strong class="text-primary dark:text-accent font-semibold">Najmi Academy</strong>, I aim to empower others by breaking down complex concepts into actionable tutorials. Building a community of developers and innovators is what truly drives my daily motivation.',
-                                'tags' => ['Mentoring', 'Community', 'Education'],
-                                'iconColor' => 'accent',
-                                'gradientTo' => 'primary',
-                                'emoji' => '🎓',
-                                'direction' => 'reverse',
-                            ],
-                        ];
-                    @endphp
-
-                    @foreach($motivationItems as $index => $item)
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center motivation-item opacity-0"
-                            data-direction="{{ $item['direction'] }}">
-
-                            {{-- Image --}}
-                            <div
-                                class="relative group {{ $item['direction'] === 'reverse' ? 'md:order-2' : '' }} motivation-img">
-                                <div
-                                    class="absolute -inset-1 bg-gradient-to-r from-{{ $item['iconColor'] }} to-{{ $item['gradientTo'] }} rounded-2xl blur opacity-25 group-hover:opacity-70 transition-all duration-700 group-hover:scale-105">
-                                </div>
-                                <div
-                                    class="relative rounded-2xl overflow-hidden glass shadow-2xl ring-1 ring-white/10 dark:ring-white/5">
-                                    <div
-                                        class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60 z-10">
-                                    </div>
-                                    <img src="{{ asset('build/assets/' . $item['image']) }}" alt="{{ $item['title'] }}"
-                                        class="w-full h-auto object-cover transform transition-all duration-700 group-hover:scale-110"
-                                        loading="lazy" decoding="async">
-                                    <div
-                                        class="absolute inset-0 bg-gradient-to-t from-{{ $item['iconColor'] }}/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-5">
-                                    </div>
-                                    <div class="absolute bottom-4 left-4 z-20 flex gap-2">
-                                        <span
-                                            class="px-3 py-1 bg-black/50 backdrop-blur-sm rounded-full text-xs text-white font-medium">
-                                            {{ $item['emoji'] }} {{ $item['title'] }}
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {{-- Text --}}
-                            <div class="space-y-6 {{ $item['direction'] === 'reverse' ? 'md:order-1' : '' }} motivation-text">
-                                <h3
-                                    class="text-2xl md:text-3xl font-bold text-slate-800 dark:text-slate-100 flex items-center gap-4">
-                                    <span
-                                        class="flex items-center justify-center w-14 h-14 rounded-xl bg-{{ $item['iconColor'] }}/10 text-{{ $item['iconColor'] }} shadow-inner relative flex-shrink-0">
-                                        <span
-                                            class="absolute inset-0 rounded-xl bg-{{ $item['iconColor'] }}/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-                                        <svg class="w-7 h-7 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                                d="{{ $item['icon'] }}"></path>
-                                        </svg>
-                                    </span>
-                                    <span class="relative">
-                                        {{ $item['title'] }}
-                                        <span
-                                            class="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-{{ $item['iconColor'] }} to-transparent rounded-full scale-x-0 origin-left transition-transform duration-700 motivation-underline"></span>
-                                    </span>
-                                </h3>
-
-                                <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
-                                    {!! $item['description'] !!}
-                                </p>
-
-                                <div class="flex flex-wrap items-center gap-3 pt-2">
-                                    @foreach($item['tags'] as $tag)
-                                        <span
-                                            class="px-4 py-1.5 rounded-full bg-slate-200 dark:bg-slate-800 text-sm font-medium text-slate-700 dark:text-slate-300 transition-all duration-300 hover:bg-{{ $item['iconColor'] }}/10 hover:text-{{ $item['iconColor'] }} hover:scale-105 cursor-default">
-                                            {{ $tag }}
-                                        </span>
-                                    @endforeach
-                                </div>
-
-                                {{-- Animated progress bar --}}
-                                <div class="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden mt-4">
-                                    <div
-                                        class="motivation-bar h-full bg-gradient-to-r from-{{ $item['iconColor'] }} to-{{ $item['gradientTo'] }} rounded-full w-0 transition-all duration-1000 ease-out">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
+            @endforeach
+        </div>
+    </div>
+</section>
     </div>
 
     {{-- ===== STYLES ===== --}}
@@ -505,6 +391,16 @@
             }
         }
 
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: currentColor; }
+        }
+
         /* ---- Utility classes ---- */
         .animate-float-slow {
             animation: float-slow 6s ease-in-out infinite;
@@ -584,54 +480,9 @@
             opacity: 1 !important;
             transform: translateY(0) !important;
         }
-
-        /* ---- Motivation section ---- */
-        .motivation-header {
-            transition: opacity 0.9s ease, transform 0.9s ease;
-            transform: translateY(24px);
-        }
-
-        .motivation-header.animated {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-
-        .motivation-item {
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .motivation-item[data-direction="normal"] {
-            transform: translateX(-30px);
-        }
-
-        .motivation-item[data-direction="reverse"] {
-            transform: translateX(30px);
-        }
-
-        .motivation-item.animated {
-            opacity: 1 !important;
-            transform: translateX(0) !important;
-        }
-
-        .motivation-item.animated .motivation-underline {
-            transform: scaleX(1);
-            transition-delay: 0.6s;
-        }
-
-        .motivation-item.animated .motivation-bar {
-            width: 100% !important;
-        }
-
-        /* ---- Scroll transition fix ---- */
-        .transition-all {
-            transition-property: all;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* ---- Scroll transition fix ------------------------------------------------------ */
     </style>
 
-    {{-- ===== SCROLL-REVEAL SCRIPTS ===== --}}
+    {{-- ===== SCRIPTS ===== --}}
     @push('scripts')
         <script>
             (function () {
@@ -672,15 +523,46 @@
                     }, delay);
                 }, { threshold: 0.2 });
 
-                // ---- Motivation header ----
-                observe('.motivation-header', (el) => {
-                    el.classList.add('animated');
-                }, { threshold: 0.1 });
+                // ---- Typewriter effect ----
+                const roles = [
+                    'Full Stack Laravel Developer',
+                    'AI Automation Engineer',
+                    'n8n Workflow Developer',
+                    'Open‑Source Enthusiast',
+                    'NAJMI ACADEMY'
+                ];
+                let roleIndex = 0;
+                let charIndex = 0;
+                let isDeleting = false;
+                const typewriterEl = document.getElementById('typewriter-text');
 
-                // ---- Motivation items ----
-                observe('.motivation-item', (item) => {
-                    item.classList.add('animated');
-                }, { threshold: 0.15 });
+                function typeEffect() {
+                    if (!typewriterEl) return;
+                    const currentText = roles[roleIndex];
+                    if (!isDeleting) {
+                        typewriterEl.textContent = currentText.substring(0, charIndex + 1);
+                        charIndex++;
+                        if (charIndex === currentText.length) {
+                            isDeleting = true;
+                            setTimeout(typeEffect, 2000);
+                            return;
+                        }
+                        setTimeout(typeEffect, 80);
+                    } else {
+                        typewriterEl.textContent = currentText.substring(0, charIndex - 1);
+                        charIndex--;
+                        if (charIndex === 0) {
+                            isDeleting = false;
+                            roleIndex = (roleIndex + 1) % roles.length;
+                            setTimeout(typeEffect, 400);
+                            return;
+                        }
+                        setTimeout(typeEffect, 40);
+                    }
+                }
+
+                // Start typewriter after a small delay
+                setTimeout(typeEffect, 1000);
 
             })();
         </script>
